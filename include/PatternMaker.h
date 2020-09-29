@@ -5,11 +5,11 @@ class PatternMaker;
 class Monitor
 {
 public:
-    Monitor(int inch_size, int col_size, int row_size);
+    Monitor(float inch_size, int col_size, int row_size);
     float getPixSize();
     void printInfo();
 
-    const int inches;
+    const float inches;
     const int rows;
     const int cols;
 private:
@@ -21,7 +21,11 @@ private:
 class PatternMaker{
 public:
     PatternMaker(Monitor monitor):monitor(monitor){};
-
+    cv::Mat make_acircles_pattern(int rows, int cols, float spacing, float radius_rate);
+    cv::Mat make_circles_pattern(int rows, int cols, float spacing, float radius_rate);
+    cv::Mat make_checkerboard_pattern(int rows, int cols, float spacing);
+    void blink(float fps);
+    void show(std::string winName);
 private:
     Monitor monitor;
     cv::Mat pattern;
