@@ -21,5 +21,5 @@ void Monitor::printInfo(){
 
 float Monitor::getPixSize(){
     return pix_size;
-    
+
 }
